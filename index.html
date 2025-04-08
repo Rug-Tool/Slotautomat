@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>🎰 Slot mit Einsatz-System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="floating-fruit">🍒</div>
+  <div class="floating-fruit">🍋</div>
+  <div class="floating-fruit">🍇</div>
+  <div class="floating-fruit">🍉</div>
+  <div class="floating-fruit">🍊</div>
+
+  <h1>🎰 Slotautomat mit Einsatz</h1>
+
+  <div class="coin-display">🪙 Coins: <span id="coins">10</span></div>
+  <button id="debugWinBtn" class="debug-button" onclick="toggleDebugMode()">✅ Debug ON</button>
+
+  <div class="bet-display">
+    Einsatz: 
+    <select id="betSelect" onchange="checkSpinState()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select> 🪙
+  </div>
+
+  <div class="slot" id="slot">
+    <span>❔</span>
+    <span>❔</span>
+    <span>❔</span>
+    <span>❔</span>
+    <span>❔</span>
+  </div>
+
+  <button id="spinButton" onclick="spin()">Drehen</button>
+  <button onclick="addCoins()">Coins aufladen</button>
+  <button id="autoSpinButton" onclick="toggleAutoSpin()">Auto Spin</button>
+  <button id="resetButton" onclick="resetGame()">Spiel zurücksetzen</button>
+
+  <div class="result" id="result"></div>
+
+  <div class="risk-phase" id="riskPhase" style="display: none;">
+    <p id="riskMessage">Gewinn: <span id="riskAmount">0</span> Coins</p>
+    <button id="riskButton" onclick="handleRisk('risk')">Risikieren</button>
+    <button id="collectButton" onclick="handleRisk('collect')">Sammeln</button>
+  </div>
+
+  <div id="winPopup" class="win-popup" style="display: none;">
+    <div class="win-popup-content">
+      <p id="winPopupMessage">Gewinn: <span id="winPopupAmount">0</span> Coins</p>
+      <button id="collectWinButton" onclick="collectWin()">💰 Sammeln</button>
+      <button id="riskWinButton" onclick="riskWin()">🎲 Risiko</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
